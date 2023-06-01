@@ -52,11 +52,11 @@ function Main( ) {
               <AllQuestions />
               <AllQuestions />
               <AllQuestions />
+              {/* <AllQuestions />
               <AllQuestions />
               <AllQuestions />
               <AllQuestions />
-              <AllQuestions />
-              <AllQuestions />
+              <AllQuestions /> */}
 
               {/* data={_q}   All questions ke andr jayega ye*/} 
             </div>
