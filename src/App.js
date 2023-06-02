@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import {
   BrowserRouter as Router, Switch, Route
 } from 'react-router-dom'
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Enord from './components/Enord';
 import ViewQuestion from './components/ViewQuestion';
@@ -12,7 +12,8 @@ import Question from './components/Add-Question/Question';
 
 function App() {
 return (
-    <div className="App">
+    <div className="App">   
+      {/* <p>Hello</p> */}
       <Router>
         <Header />
         <Switch>
