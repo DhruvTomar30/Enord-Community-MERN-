@@ -1,10 +1,12 @@
 .sidebar {
     display: flex;
-    padding: 20px 0px 10px 10px;
+    padding: 10px 0px 10px 10px;
     height: 100%;
     border-right: 1px solid #ddd;
     flex: 0.5;
-    max-width: 200px;
+    /* width change to 150 from 200 */
+    max-width: 150px;
+   
   }
   
   .sidebar-container {
@@ -16,7 +18,7 @@
   .sidebar-options {
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 150px;
   }
   
   .sidebar-option {
