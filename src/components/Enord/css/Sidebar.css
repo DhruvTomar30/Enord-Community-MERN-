@@ -6,7 +6,8 @@
     flex: 0.5;
     /* width change to 150 from 200 */
     max-width: 150px;
-   
+    position: fixed;
+    left: 4cm;
   }
   
   .sidebar-container {
