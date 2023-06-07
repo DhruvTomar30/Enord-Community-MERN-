@@ -145,7 +145,7 @@ function Home(){
     </div> 
 
 
-    {/* <!-- marqueee          onmouseover="stop()"  onmouseout="start()"          --> */}
+    {/* <!-- marqueee         --> */}
 
     <marquee direction="left"   scrollamount="15">
       <div class="imgContain">
