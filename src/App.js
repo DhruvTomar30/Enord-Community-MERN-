@@ -10,6 +10,7 @@ import Enord from './components/Enord';
 import ViewQuestion from './components/ViewQuestion';
 import Question from './components/Add-Question/Question';
 import Auth from './components/Auth'
+import Home from './components/HOMEPAGE/Home';
 
 
 function App() {
@@ -25,6 +26,7 @@ return (
           <Route exact path="/add-question" component={Question  } />
           <Route exact path="/question" component={ViewQuestion } />
           <Route exact path="/" component={Enord} />
+          <Route path="/home" component={Home}></Route>
           
         </Switch>
 
