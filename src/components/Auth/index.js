@@ -3,7 +3,7 @@ import "./index.css";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../firebase';
 import { useHistory } from 'react-router-dom';
-
+// hello
 function Index() {
   const [register , setRegister] = useState(false)
   const [email, setEmail ] = useState("")
