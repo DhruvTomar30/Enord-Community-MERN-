@@ -1,9 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css' //quill's css important
 import { TagsInput } from 'react-tag-input-component';
 import "./Question.css";
+import {useHistory} from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import {selectUser} from '../../feature/userSlice'
+import axios from 'axios'
 function Question() {
+
+    const user = useSelector(selectUser)
+
+   
+    const [title, setTitle] = React.useState("");
+    const [body, setBody] = React.useState("");
+    const [tags, setTags] = React.useState([]);
+
+    const history = useHistory()
+    const handleQuill = (value)=>{
+        setBody(value)
+    }
+
+    const clickHandler = async (e)=>{
+        console.log("clicked on submit button")
+
+        e.preventDefault();
+
+        if(title !=="" && body !== ""){
+       
+            const bodyJSON ={
+                title:title,
+                body:body,
+               tag:JSON.stringify(tags),
+                user:user,
+            }
+            
+            await axios.post('/api/question',bodyJSON).then((res)=>{
+                alert('question added succesfully')
+              
+                history.push('/')
+            }).catch( (err)=>{
+                console.log(err)
+
+            })
+        }
+    }
+
+
   return (
     <div className="add-question">
         <div className="add-question-container">
@@ -19,7 +62,7 @@ function Question() {
                             <small>Be specific and imagine you're asking a Question 
                                 to another person   
                                 </small>
-                                <input type= "text" placeholder=" Add a question title"  />
+                                <input  value={title}  onChange={(e)=> setTitle(e.target.value)} type= "text" placeholder=" Add a question title"  />
                             </div>
                     </div>
                     <div className="question-option">
@@ -30,7 +73,7 @@ function Question() {
                                 Be specific and imagine you're asking a Question 
                                 to another person 
                             </small>
-                            <ReactQuill className='react-quill' theme='snow'/>
+                            <ReactQuill value={body} onChange={handleQuill} className='react-quill' theme='snow'/>
                             </div>
                     </div>
                     <div className="question-option">
@@ -42,13 +85,16 @@ function Question() {
                                 question is about
                                   </small>
                                   {/* <TagsInput name="tags" 
+                                  value={tags}
+                                  onchange={setTags}
                                   placeHolder='pres enter to add new tag' /> */}
                             
                         </div>
                     </div>
                 </div>
             </div>
-            <button className="button" >Add your question </button>
+
+            <button   onClick={clickHandler} className="button" > Add your question </button>
         </div>
     </div>
   );

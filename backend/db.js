@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const url =
-  "mongodb+srv://dhruvtomar2020:<password>@cluster0.6zn5z7k.mongodb.net/";
+const url = "mongodb://0.0.0.0:27017/enordDataBase";
 module.exports.connect = () => {
   mongoose
     .connect(url, {
