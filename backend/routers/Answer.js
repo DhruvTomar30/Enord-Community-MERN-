@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const answerDB = require("../models/Answers");
+const answerDB = require("../models/Answer");
 
+//to post ans
 router.post("/", async (req, res) => {
   const answerData = new answerDB({
     question_id: req.body.question_id,
@@ -12,17 +13,23 @@ router.post("/", async (req, res) => {
   await answerData
     .save()
     .then((doc) => {
-      res.status(201).send(doc);
+      res.status(201).send({
+        status:true,
+        data: doc
+      });
     })
     .catch((err) => {
       res.status(400).send({
+        status:false,
         message: "Answer not added successfully",
       });
     });
 });
 
-router.get('/', async (req, res) => {
-    
+//to get ans
+router.post("/",async(req,res)=>{
+  
 })
+
 
 module.exports = router;
